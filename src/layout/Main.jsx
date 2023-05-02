@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../pages/Shared/Header/Header';
 import Footer from '../pages/Shared/Footer/Footer';
 import { Col, Container, Row } from 'react-bootstrap';
-import Leftnav from '../pages/Shared/LeftNav/Leftnav';
 import RightNav from '../pages/Shared/RightNav/RightNav';
+import LeftNav from '../pages/Shared/LeftNav/LeftNav';
 
 const Main = () => {
     return (
@@ -14,7 +14,7 @@ const Main = () => {
                 
                 <Row>
                     <Col lg={3}>
-                        <Leftnav></Leftnav>
+                        <LeftNav></LeftNav>
                     </Col>
                     <Col lg={6}>
                         <h2>Main content coming soon</h2>

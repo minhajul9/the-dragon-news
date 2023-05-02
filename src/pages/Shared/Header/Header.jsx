@@ -13,7 +13,7 @@ const Header = () => {
                 <p>{moment().format("dddd, MMMM DD, YYYY")}</p>
             </div>
 
-            <div>
+            <div className='d-flex'>
                 <Button variant='danger'>Latest</Button>
                 <Marquee speed={50}>
                     I can be a React component, multiple React components, or just some text.
