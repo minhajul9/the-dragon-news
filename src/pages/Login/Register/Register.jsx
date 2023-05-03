@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 const Register = () => {
 
     const {createUser} = useContext(AuthContext);
+    const [accepted, setAccepted] = useState(false)
 
     const handleRegister = event =>{
         event.preventDefault();
@@ -20,6 +21,10 @@ const Register = () => {
             console.log(createdUser);
         })
         .catch(error => console.log(error))
+    }
+
+    const handleChecked = event =>{
+        setAccepted(event.target.checked);
     }
 
     return (
@@ -44,15 +49,16 @@ const Register = () => {
                 <Form.Control type="password" placeholder="Enter your password" />
             </Form.Group>
 
-            <Form.Group controlId="rememberMe">
+            <Form.Group  controlId="rememberMe">
                 <Form.Check
+                    onClick={handleChecked}
                     type="checkbox"
-                    label="Agree Terms and Conditions"
-                    onChange={() => { }}
+                    label={<>Agree  <Link to='/terms'>Terms and Conditions</Link></>}
+                    name='accept'
                 />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button disabled={!accepted} variant="primary" type="submit">
                 Submit
             </Button>
 
