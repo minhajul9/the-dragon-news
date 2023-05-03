@@ -3,7 +3,8 @@ import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaEye, FaRegBookmark, FaShareAlt, FaRegStar, FaStar } from "react-icons/fa";
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 // eslint-disable-next-line react/prop-types
@@ -34,14 +35,12 @@ const NewsCard = ({ news }) => {
 
             </Card.Body>
             <Card.Footer className="text-muted d-flex">
-                <div className='flex-grow-1'>
+                <div className='d-flex flex-grow-1 align-items-center'>
 
                     <Rating
-                        placeholderRating={rating?.number}
-                        readonly
-                        emptySymbol={<FaRegStar />}
-                        placeholderSymbol={<FaStar className='text-warning'/>}
-                        fullSymbol={<FaStar />}
+                        style={{ maxWidth: 150 }}
+                        value={rating?.number}
+                        readOnly
                     />
                     <span>{rating?.number}</span>
                 </div>
